@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+ <PropertyGroup>
+    <AssemblyName>VehicleStorage.WebApi</AssemblyName>
+    <RootNamespace>VehicleStorage.WebApi</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VehicleStorage.Application\VehicleStorage.Application.csproj" />
+    <ProjectReference Include="..\VehicleStorage.Infrastructure\VehicleStorage.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>VehicleStorage.Application</AssemblyName>
+    <RootNamespace>VehicleStorage.Application</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VehicleStorage.Domain\VehicleStorage.Domain.csproj" />
+  </ItemGroup>
+</Project>
