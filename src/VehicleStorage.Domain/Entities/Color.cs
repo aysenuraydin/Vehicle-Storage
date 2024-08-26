@@ -2,7 +2,7 @@ using VehicleStorage.Domain.Common;
 
 namespace VehicleStorage.Domain.Entities
 {
-    public class Color : BaseEntity
+    public class Colour : BaseEntity
     {
         public string ColorName { get; set; }
 
