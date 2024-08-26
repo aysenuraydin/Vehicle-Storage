@@ -7,6 +7,6 @@ namespace VehicleStorage.Application
 {
     public class DependencyInjection
     {
-        
+
     }
 }
