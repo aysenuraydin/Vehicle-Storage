@@ -7,6 +7,7 @@ public static class DependencyInjection
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         services.AddScoped(typeof(IService<,>), typeof(BaseService<,>));
+        services.AddScoped(typeof(IServiceForVehicle<,>), typeof(VehicleBaseService<,>));
 
         services.AddTransient<IBusService, BusService>();
         services.AddTransient<ICarService, CarService>();

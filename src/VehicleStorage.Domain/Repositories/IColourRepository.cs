@@ -5,5 +5,5 @@ namespace VehicleStorage.Repository.Domain;
 
 public interface IColourRepository : IRepository<Colour>
 {
-
+    Task<int> GetIdAsync(string colorName);
 }
