@@ -17,7 +17,7 @@ namespace VehicleStorage.WebApi.Controllers
         [HttpGet("GetAllVehicles")]
         public async Task<IActionResult> GetAll()
         {
-            var customers = await _vehicleService.GetAllAsync();
+            var customers = await _vehicleService.GetAllWithColourNameAsync();
 
             return Ok(customers);
         }

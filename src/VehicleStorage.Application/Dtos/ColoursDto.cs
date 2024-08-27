@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace VehicleStorage.Application.Dtos
 {
-    public class VehicleDto
+    public class ColoursDto
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string CreatedDate { get; set; }
-        public string ColourName { get; set; }
+        public string ColorName { get; set; }
     }
 }
