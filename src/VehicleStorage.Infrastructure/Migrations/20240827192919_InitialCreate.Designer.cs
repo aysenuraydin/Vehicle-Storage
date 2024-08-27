@@ -11,7 +11,7 @@ using VehicleStorage.Infrastructure;
 namespace VehicleStorage.Infrastructure.Migrations
 {
     [DbContext(typeof(StorageDbContext))]
-    [Migration("20240827093334_InitialCreate")]
+    [Migration("20240827192919_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

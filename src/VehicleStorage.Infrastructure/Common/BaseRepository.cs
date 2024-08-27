@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using VehicleStorage.Domain.Common;
+using VehicleStorage.Domain.Entities;
 
 namespace VehicleStorage.Infrastructure.Common;
 public class BaseRepository<TEntity, TKey> : IRepository<TEntity, TKey>
-where TEntity : class, IEntity<TKey>
+where TEntity : class
 {
     private readonly StorageDbContext _context;
     private readonly DbSet<TEntity> _table;
@@ -23,30 +24,26 @@ where TEntity : class, IEntity<TKey>
     {
         return await _table.ToListAsync();
     }
-    // public async Task<IEnumerable<TEntity>> GetAllByColourAsync(string colorName)
-    // {
-    //     return await _table.ToListAsync();
-    // }
     public void Dispose()
     {
-        //Dispose(true);
+        Dispose(true);
         GC.SuppressFinalize(this);
     }
     protected virtual void Dispose(bool disposing)
     {
-        // if (!_disposed)
-        // {
-        //     if (disposing)
-        //     {
-        //         _context.Dispose();
-        //     }
-        // }
-        // _disposed = true;
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                _context.Dispose();
+            }
+        }
+        _disposed = true;
     }
 }
 
 public class BaseRepository<TEntity> : BaseRepository<TEntity, int>
-     where TEntity : class, IEntity<int>
+    where TEntity : class
 {
     public BaseRepository(StorageDbContext context) : base(context)
     {

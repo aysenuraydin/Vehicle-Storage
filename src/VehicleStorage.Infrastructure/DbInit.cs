@@ -19,14 +19,11 @@ public static class DbInitExtensions
         // Migration yapısını kullandığımız durumda proje çalıştığında Migration işlemini yapar.
         context.Database.Migrate();
 
-        //seederları ekle ... 
-
         await new ColourSeeder().Seed(context);
         await new BoatSeeder().Seed(context);
         await new BusSeeder().Seed(context);
         await new CarSeeder().Seed(context);
 
-        // ISeeder arayüzünden türeyen tüm Seeder'ları çalıştırmayı sağlar.
         await ApplyAllSeederFromAssembly(context);
     }
 

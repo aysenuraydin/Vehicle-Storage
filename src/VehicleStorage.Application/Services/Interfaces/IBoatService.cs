@@ -3,7 +3,6 @@ using VehicleStorage.Domain.Common;
 using VehicleStorage.Domain.Entities;
 
 namespace VehicleStorage.Services.Interfaces;
-public interface IBoatService : IServiceForVehicle<Boat>
+public interface IBoatService : IServiceForVehicle<Boat, int>
 {
-    Task<IEnumerable<VehicleDto>> GetAllByColourNameAsync(string colorName);
 }

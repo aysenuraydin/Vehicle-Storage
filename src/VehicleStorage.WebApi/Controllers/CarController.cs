@@ -30,7 +30,14 @@ namespace VehicleStorage.WebApi.Controllers
 
             return Ok(list);
         }
+        [HttpGet("ToggleHeadlight/{id}")]
+        public async Task<IActionResult> ToggleHeadlight(int id)
+        {
+            var result = await _carService.ToggleHeadlight(id);
 
+            if (!result) return Ok("Headlight of down");
+            return Ok("Headlight is turn on");
+        }
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

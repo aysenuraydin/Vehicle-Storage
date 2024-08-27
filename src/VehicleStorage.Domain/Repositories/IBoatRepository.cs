@@ -3,7 +3,7 @@ using VehicleStorage.Domain.Entities;
 
 namespace VehicleStorage.Repository.Domain;
 
-public interface IBoatRepository : IRepository<Boat>
+public interface IBoatRepository : IRepositoryForVehicle<Boat, int>
 {
-    Task<IEnumerable<Boat>> GetAllByColourIdAsync(int colorId);
+
 }

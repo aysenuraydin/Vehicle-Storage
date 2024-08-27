@@ -1,12 +1,8 @@
 
-using VehicleStorage.Application.Dtos;
-using VehicleStorage.Domain.Entities;
-using VehicleStorage.Repository.Domain;
-
 namespace VehicleStorage.Domain.Common
 {
     public class BaseService<TEntity, TKey> : IService<TEntity, TKey>
-    where TEntity : class, IEntity<TKey>
+    where TEntity : class
     {
         private readonly IRepository<TEntity, TKey> _repository;
 

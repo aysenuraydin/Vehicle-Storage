@@ -4,9 +4,8 @@ using VehicleStorage.Domain.Entities;
 
 namespace VehicleStorage.Services.Interfaces;
 
-public interface ICarService : IServiceForVehicle<Car>
+public interface ICarService : IServiceForVehicle<Car, int>
 {
-    Task<IEnumerable<VehicleDto>> GetAllByColourNameAsync(string colorName);
     Task<bool> Delete(int id);
-    //farları ac kapa
+    Task<bool> ToggleHeadlight(int id);
 }
