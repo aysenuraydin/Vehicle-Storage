@@ -28,6 +28,14 @@ public class CarRepository : BaseRepository<Car>, ICarRepository
         if (entity != null) return await Delete(entity);
         return false;
     }
+    public async Task<IEnumerable<Car>> GetAllByColourIdAsync(int colorId)
+    {
+        var vehicleList = await _table
+                            .Where(x => x.ColourId == colorId)
+                            .Include(i => i.ColourFk)
+                            .ToListAsync();
+        return vehicleList;
+    }
 
 
     //farları ac kapa

@@ -5,5 +5,5 @@ namespace VehicleStorage.Repository.Domain;
 
 public interface IBoatRepository : IRepository<Boat>
 {
-
+    Task<IEnumerable<Boat>> GetAllByColourIdAsync(int colorId);
 }

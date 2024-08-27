@@ -7,7 +7,7 @@ using VehicleStorage.Services.Interfaces;
 namespace VehicleStorage.Services;
 public class BoatService : VehicleBaseService<Boat, int>, IBoatService
 {
-    public BoatService(IVehicleRepository vehicleRepository, IColourRepository colourContext, IRepository<Boat, int> repository) : base(vehicleRepository, colourContext, repository)
+    public BoatService(IColourRepository colourContext, IRepository<Boat, int> repository) : base(colourContext, repository)
     {
     }
 }
