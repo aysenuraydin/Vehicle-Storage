@@ -8,22 +8,22 @@ namespace VehicleStorage.Domain.Common
     public class VehicleBaseService<TEntity, TKey> : BaseService<TEntity, TKey>
     where TEntity : class, IEntity<TKey>
     {
-        private readonly IVehicleRepository _vehicleRepository;
+        IRepository<TEntity, TKey> _repository;
         private readonly IColourRepository _colourRepository;
 
-        public VehicleBaseService(IVehicleRepository vehicleRepository, IColourRepository colourContext, IRepository<TEntity, TKey> repository) : base(repository)
+        public VehicleBaseService(IColourRepository colourContext, IRepository<TEntity, TKey> repository) : base(repository)
         {
-            _vehicleRepository = vehicleRepository;
+            _repository = repository;
             _colourRepository = colourContext;
         }
-
+        /*        
         public async Task<IEnumerable<VehicleDto>> GetAllByColourNameAsync(string colorName)
         {
             // repoları kullanıcak ,liste dönücek
             var colourId = await _colourRepository.GetIdAsync(colorName); //colour id i al
 
             //id e göre aracları listele
-            var list = await _vehicleRepository.GetAllByColourIdAsync(colourId); //colour id göre filtreleyerek al
+            var list = await _repository.GetAllByColourIdAsync(colourId); //colour id göre filtreleyerek al
 
             return list.Select(x => VehicleListToDTO(x)).ToList();
         }
@@ -39,5 +39,6 @@ namespace VehicleStorage.Domain.Common
             }
             return entity;
         }
+        */
     }
 }

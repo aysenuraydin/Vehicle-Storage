@@ -5,5 +5,5 @@ namespace VehicleStorage.Repository.Domain;
 
 public interface IBusRepository : IRepository<Bus>
 {
-
+    Task<IEnumerable<Bus>> GetAllByColourIdAsync(int colorId);
 }

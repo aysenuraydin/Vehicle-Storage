@@ -10,7 +10,7 @@ public class CarService : VehicleBaseService<Car, int>, ICarService
 
     ICarRepository _carRepository;
     //farları ac kapa
-    public CarService(IVehicleRepository vehicleRepository, IColourRepository colourContext, IRepository<Car, int> repository, ICarRepository carRepository) : base(vehicleRepository, colourContext, repository)
+    public CarService(IColourRepository colourContext, IRepository<Car, int> repository, ICarRepository carRepository) : base(colourContext, repository)
     {
         _carRepository = carRepository;
 

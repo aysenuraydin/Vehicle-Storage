@@ -8,7 +8,7 @@ namespace VehicleStorage.Services;
 
 public class VehicleService : VehicleBaseService<Vehicle, int>, IVehicleService
 {
-    public VehicleService(IVehicleRepository vehicleRepository, IColourRepository colourContext, IRepository<Vehicle, int> repository) : base(vehicleRepository, colourContext, repository)
+    public VehicleService(IColourRepository colourContext, IRepository<Vehicle, int> repository) : base(colourContext, repository)
     {
     }
 }
