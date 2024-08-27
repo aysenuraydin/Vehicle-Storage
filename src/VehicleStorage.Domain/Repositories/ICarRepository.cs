@@ -3,9 +3,13 @@ using VehicleStorage.Domain.Entities;
 
 namespace VehicleStorage.Repository.Domain;
 
-public interface ICarRepository : IRepository<Car>
+public interface ICarRepository : IRepositoryForVehicle<Car, int>
 {
-    Task<IEnumerable<Car>> GetAllByColourIdAsync(int colorId);
+    Task<Car?> GetById(int id);
+    Task<bool> Delete(Car entity);
     Task<bool> DeleteById(int id);
+
     //farları ac kapa
+    Task<bool> ToggleHeadlight(int id);
+
 }

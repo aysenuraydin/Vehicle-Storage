@@ -6,9 +6,4 @@ namespace VehicleStorage.Domain.Common
     {
         Task<IEnumerable<VehicleDto>> GetAllByColourNameAsync(string colorName);
     }
-
-    public interface IServiceForVehicle<TEntity> : IService<TEntity, int>
-    {
-
-    }
 }

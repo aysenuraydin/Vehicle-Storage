@@ -1,8 +1,7 @@
 using VehicleStorage.Domain.Common;
 
 namespace VehicleStorage.Domain.Entities;
-
-public class Vehicle : BaseEntity
+public class Vehicle : BaseEntity<int>, IVehicle
 {
     public string Name { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
@@ -10,8 +9,6 @@ public class Vehicle : BaseEntity
     public Colour ColourFk { get; set; }
 
 }
-
-
 
 
 

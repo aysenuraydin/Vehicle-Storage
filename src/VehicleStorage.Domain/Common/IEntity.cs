@@ -4,9 +4,4 @@ namespace VehicleStorage.Domain.Common
     {
         public TKey Id { get; set; }
     }
-
-    public interface IEntity : IEntity<int>
-    {
-        public int Id { get; set; }
-    }
 }

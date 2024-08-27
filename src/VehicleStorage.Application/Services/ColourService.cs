@@ -13,8 +13,4 @@ public class ColourService : BaseService<Colour, int>, IColourService
     {
         _context = context;
     }
-
-
-
-    //farları ac kapa
 }

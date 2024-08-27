@@ -13,7 +13,6 @@ namespace VehicleStorage.Infrastructure
         public DbSet<Car> Cars { get; set; }
         public DbSet<Bus> Buses { get; set; }
         public DbSet<Boat> Boats { get; set; }
-        //Dbset ...
 
         public StorageDbContext(DbContextOptions<StorageDbContext> options) : base(options)
         {

@@ -4,7 +4,6 @@ using VehicleStorage.Domain.Entities;
 
 namespace VehicleStorage.Services.Interfaces;
 
-public interface IBusService : IServiceForVehicle<Bus>
+public interface IBusService : IServiceForVehicle<Bus, int>
 {
-    Task<IEnumerable<VehicleDto>> GetAllByColourNameAsync(string colorName);
 }

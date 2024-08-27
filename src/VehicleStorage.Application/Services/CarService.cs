@@ -7,19 +7,24 @@ namespace VehicleStorage.Services;
 
 public class CarService : VehicleBaseService<Car, int>, ICarService
 {
-
     ICarRepository _carRepository;
-    //farları ac kapa
-    public CarService(IColourRepository colourContext, IRepository<Car, int> repository, ICarRepository carRepository) : base(colourContext, repository)
+    public CarService(IColourRepository colourContext, IRepository<Car, int> repository, IRepositoryForVehicle<Car, int> serviceForVehicleRepository, ICarRepository carRepository) : base(colourContext, repository, serviceForVehicleRepository)
     {
         _carRepository = carRepository;
-
     }
+
     public async Task<bool> Delete(int id)
     {
         bool isSuccess = await _carRepository.DeleteById(id);
         if (isSuccess)
             return true;
+        return false;
+    }
+    public async Task<bool> ToggleHeadlight(int id)
+    {
+        bool isSuccess = await _carRepository.ToggleHeadlight(id);
+
+        if (isSuccess) return true;
         return false;
     }
 }

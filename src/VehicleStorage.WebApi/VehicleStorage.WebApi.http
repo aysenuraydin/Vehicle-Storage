@@ -2,9 +2,16 @@
 
 GET {{HostAddress}}/Car/GetAllCars
 Accept: application/json
+###
+GET  {{HostAddress}}/Car/ToggleHeadlight/21
+Accept: application/json
 
 ###
-GET {{HostAddress}}/Bus/GetAllBuses
+DELETE {{HostAddress}}/Car/25
+Accept: application/json
+
+###
+GET {{HostAddress}}/Car/GetAllBuses
 Accept: application/json
 
 ###
@@ -20,20 +27,20 @@ GET {{HostAddress}}/Colour/GetAllColours
 Accept: application/json
 
 
+########################
+GET {{HostAddress}}/Vehicle/GetAllVehicles
+Accept: application/json
 ###
-GET {{HostAddress}}/Vehicle/GetAllVehicleByColour/Kırmızı
+GET {{HostAddress}}/Vehicle/GetAllVehicleByColour/Siyah
 Accept: application/json
 ###
 GET {{HostAddress}}/Car/GetAllCarsByColour/Siyah
 Accept: application/json
 ###
-GET {{HostAddress}}/Boat/GetAllBoatsByColour/Mavi
+GET {{HostAddress}}/Boat/GetAllBoatsByColour/beyaz
 Accept: application/json
 ###
-GET {{HostAddress}}/Bus/GetAllBusesByColour/Beyaz
+GET {{HostAddress}}/Bus/GetAllBusesByColour/Siyah
 Accept: application/json
 ###
 
-DELETE {{HostAddress}}/Car/22
-Accept: application/json
-###

@@ -19,6 +19,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IStorageDbContext>(provider => provider.GetRequiredService<StorageDbContext>());
 
             services.AddScoped(typeof(IRepository<,>), typeof(BaseRepository<,>));
+            services.AddScoped(typeof(IRepositoryForVehicle<,>), typeof(VehicleBaseRepository<,>));
 
             services.AddScoped<IBusRepository, BusRepository>();
             services.AddScoped<ICarRepository, CarRepository>();
