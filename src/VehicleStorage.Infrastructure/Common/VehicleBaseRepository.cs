@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using VehicleStorage.Domain.Common;
 using VehicleStorage.Domain.Entities;
@@ -21,5 +22,23 @@ public class VehicleBaseRepository<TEntity, TKey> : BaseRepository<TEntity, TKey
                             .Include(i => i.ColourFk)
                             .ToListAsync();
         return vehicleList;
+    }
+    public async Task<List<TEntity>> GetAllIncludeAsync(params Expression<Func<TEntity, object>>[] tables)
+    {
+        IQueryable<TEntity> db = _table;
+        foreach (var table in tables)
+        {
+            db = db.Include(table);
+        }
+        return await db.ToListAsync();
+    }
+    public async Task<List<TEntity>> GetIdAllIncludeFilterAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] tables)
+    {
+        IQueryable<TEntity> db = _table;
+        foreach (var table in tables)
+        {
+            db = db.Include(table);
+        }
+        return await db.Where(expression).ToListAsync();
     }
 }

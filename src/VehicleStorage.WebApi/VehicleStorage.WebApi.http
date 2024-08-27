@@ -11,7 +11,10 @@ DELETE {{HostAddress}}/Car/25
 Accept: application/json
 
 ###
-GET {{HostAddress}}/Car/GetAllBuses
+GET {{HostAddress}}/Car/GetAllCars
+Accept: application/json
+###
+GET {{HostAddress}}/Bus/GetAllBuses
 Accept: application/json
 
 ###
@@ -40,7 +43,7 @@ Accept: application/json
 GET {{HostAddress}}/Boat/GetAllBoatsByColour/beyaz
 Accept: application/json
 ###
-GET {{HostAddress}}/Bus/GetAllBusesByColour/Siyah
+GET {{HostAddress}}/Bus/GetAllBusesByColour/Kırmızı
 Accept: application/json
 ###
 
