@@ -1,14 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using VehicleStorage.Domain.Entities;
-using VehicleStorage.Infrastructure.Common;
 
 namespace VehicleStorage.Infrastructure.Configurations
 {
-    public class BoatConfigration : VehicleConfiguration<Boat>
+    public class BoatConfigration : IEntityTypeConfiguration<Boat>
     {
-
+        public void Configure(EntityTypeBuilder<Boat> builder)
+        {
+            builder.ToTable(nameof(Boat));
+        }
     }
+
+
 }

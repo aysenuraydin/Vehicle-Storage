@@ -1,12 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Microsoft.Extensions.DependencyInjection
+using VehicleStorage.Domain.Common;
+using VehicleStorage.Services;
+using VehicleStorage.Services.Interfaces;
+namespace Microsoft.Extensions.DependencyInjection;
+public static class DependencyInjection
 {
-    public class DependencyInjection
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
+        services.AddScoped(typeof(IService<,>), typeof(BaseService<,>));
 
+        services.AddTransient<IBusService, BusService>();
+        services.AddTransient<ICarService, CarService>();
+        services.AddTransient<IBoatService, BoatService>();
+        services.AddTransient<IColourService, ColourService>();
+        services.AddTransient<IVehicleService, VehicleService>();
+
+        return services;
     }
 }

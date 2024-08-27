@@ -7,11 +7,11 @@ namespace VehicleStorage.Services;
 
 public class CarService : BaseService<Car, int>, ICarService
 {
-    private readonly ICarRepository _carRepository;
+    private readonly ICarRepository _context;
 
-    public CarService(ICarRepository carRepository)
+    public CarService(ICarRepository context) : base(context)
     {
-        _carRepository = carRepository;
+        _context = context;
     }
 
     //farları ac kapa

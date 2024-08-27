@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Bogus;
 using VehicleStorage.Domain.Entities;
 using VehicleStorage.Infrastructure.Common;
 
@@ -14,17 +9,15 @@ namespace VehicleStorage.Infrastructure.Seeders
         {
             if (context.Colours.Any()) return;
 
-            var trSet = new Bogus.DataSets.Company(locale: "tr");
+            var colors = new List<Colour>() {
+                new() { Id=1, ColorName="Beyaz"},
+                new() { Id=2, ColorName="Kırmızı"},
+                new() { Id=3, ColorName="Siyah"},
+                new() { Id=4, ColorName="Mavi"},
+                new() { Id=5, ColorName="Gri"}
+            };
 
-            var faker = new Faker<Colour>()
-                .RuleFor(e => e.ColorName, c => trSet.CompanyName())
-            //... Devamını yaz.
-            ;
-
-
-            var list = faker.Generate(20);
-
-            await context.Colours.AddRangeAsync(list);
+            await context.Colours.AddRangeAsync(colors);
             await context.SaveChangesAsync();
         }
     }

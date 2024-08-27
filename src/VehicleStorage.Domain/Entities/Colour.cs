@@ -6,7 +6,6 @@ namespace VehicleStorage.Domain.Entities
     {
         public string ColorName { get; set; }
 
-        public int VehicleId { get; set; }
-        public Vehicle Vehicle { get; set; }
+        public List<Vehicle> Products { get; set; } = new();
     }
 }
