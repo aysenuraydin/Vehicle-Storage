@@ -30,6 +30,16 @@ namespace VehicleStorage.WebApi.Controllers
 
             return Ok(list);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _carService.Delete(id);
+
+            return Ok();
+        }
+
+    
         /*
             [HttpGet("{id}")]
             public async Task<IActionResult> Get(int id)
@@ -56,13 +66,6 @@ namespace VehicleStorage.WebApi.Controllers
                 return Ok(customer.Id);
             }
 
-            [HttpDelete("{id}")]
-            public async Task<IActionResult> Delete(int id)
-            {
-                await _carService.Delete(id);
-
-                return Ok();
-            }
         */
     }
 }

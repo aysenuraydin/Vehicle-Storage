@@ -33,3 +33,7 @@ Accept: application/json
 GET {{HostAddress}}/Bus/GetAllBusesByColour/Beyaz
 Accept: application/json
 ###
+
+DELETE {{HostAddress}}/Car/22
+Accept: application/json
+###

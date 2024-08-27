@@ -5,5 +5,6 @@ namespace VehicleStorage.Repository.Domain;
 
 public interface ICarRepository : IRepository<Car>
 {
+    Task<bool> DeleteById(int id);
     //farları ac kapa
 }
