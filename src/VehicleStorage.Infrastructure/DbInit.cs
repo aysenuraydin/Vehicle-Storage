@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using VehicleStorage.Infrastructure.Common;
@@ -16,7 +17,7 @@ public static class DbInitExtensions
         //context.Database.EnsureCreated();
 
         // Migration yapısını kullandığımız durumda proje çalıştığında Migration işlemini yapar.
-        //context.Database.Migrate();
+        context.Database.Migrate();
 
         //seederları ekle ... 
 
