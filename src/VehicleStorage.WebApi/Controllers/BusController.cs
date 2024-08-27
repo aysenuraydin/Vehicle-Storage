@@ -21,6 +21,15 @@ namespace VehicleStorage.WebApi.Controllers
 
             return Ok(customers);
         }
+        [HttpGet("GetAllBusesByColour/{colorName}")]
+        public async Task<IActionResult> GetAllByColourAsync(string colorName)
+        {
+            var list = await _busService.GetAllByColourNameAsync(colorName); //listeyi aldık
+
+            if (list == null || list.Count() == 0) return NotFound("Color or vehiche not found");
+
+            return Ok(list);
+        }
         /*
             [HttpGet("{id}")]
             public async Task<IActionResult> Get(int id)

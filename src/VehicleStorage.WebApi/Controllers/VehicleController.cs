@@ -1,4 +1,6 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
+using VehicleStorage.Repository.Domain;
 using VehicleStorage.Services.Interfaces;
 
 namespace VehicleStorage.WebApi.Controllers
@@ -15,11 +17,20 @@ namespace VehicleStorage.WebApi.Controllers
         }
 
         [HttpGet("GetAllVehicles")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAll()
         {
             var customers = await _vehicleService.GetAllAsync();
 
             return Ok(customers);
+        }
+        [HttpGet("GetAllVehicleByColour/{colorName}")]
+        public async Task<IActionResult> GetAllByColourAsync(string colorName)
+        {
+            var list = await _vehicleService.GetAllByColourNameAsync(colorName); //listeyi aldık
+
+            if (list == null || list.Count() == 0) return NotFound("Color or vehiche not found");
+
+            return Ok(list);
         }
         /*
             [HttpGet("{id}")]
@@ -55,5 +66,7 @@ namespace VehicleStorage.WebApi.Controllers
                 return Ok();
             }
         */
+
     }
+
 }

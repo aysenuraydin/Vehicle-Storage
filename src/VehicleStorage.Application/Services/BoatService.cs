@@ -5,12 +5,9 @@ using VehicleStorage.Repository.Domain;
 using VehicleStorage.Services.Interfaces;
 
 namespace VehicleStorage.Services;
-public class BoatService : BaseService<Boat, int>, IBoatService
+public class BoatService : VehicleBaseService<Boat, int>, IBoatService
 {
-    private readonly IBoatRepository _context;
-
-    public BoatService(IBoatRepository context) : base(context)
+    public BoatService(IVehicleRepository vehicleRepository, IColourRepository colourContext, IRepository<Boat, int> repository) : base(vehicleRepository, colourContext, repository)
     {
-        _context = context;
     }
 }

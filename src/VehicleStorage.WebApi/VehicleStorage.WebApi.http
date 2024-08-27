@@ -19,4 +19,17 @@ Accept: application/json
 GET {{HostAddress}}/Colour/GetAllColours
 Accept: application/json
 
+
+###
+GET {{HostAddress}}/Vehicle/GetAllVehicleByColour/Kırmızı
+Accept: application/json
+###
+GET {{HostAddress}}/Car/GetAllCarsByColour/Siyah
+Accept: application/json
+###
+GET {{HostAddress}}/Boat/GetAllBoatsByColour/Mavi
+Accept: application/json
+###
+GET {{HostAddress}}/Bus/GetAllBusesByColour/Beyaz
+Accept: application/json
 ###

@@ -24,6 +24,12 @@ public static class DependencyInjection
         services.AddControllers();
         services.AddEndpointsApiExplorer();
 
+        services.AddControllers()
+        .AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.MaxDepth = 1024;
+        });
+
         return services;
     }
 }

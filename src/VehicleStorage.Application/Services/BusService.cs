@@ -5,12 +5,9 @@ using VehicleStorage.Services.Interfaces;
 
 namespace VehicleStorage.Services;
 
-public class BusService : BaseService<Bus, int>, IBusService
+public class BusService : VehicleBaseService<Bus, int>, IBusService
 {
-    private readonly IBusRepository _context;
-
-    public BusService(IBusRepository context) : base(context)
+    public BusService(IVehicleRepository vehicleRepository, IColourRepository colourContext, IRepository<Bus, int> repository) : base(vehicleRepository, colourContext, repository)
     {
-        _context = context;
     }
 }

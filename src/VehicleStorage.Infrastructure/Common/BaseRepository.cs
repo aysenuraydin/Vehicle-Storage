@@ -23,6 +23,10 @@ where TEntity : class, IEntity<TKey>
     {
         return await _table.ToListAsync();
     }
+    // public async Task<IEnumerable<TEntity>> GetAllByColourAsync(string colorName)
+    // {
+    //     return await _table.ToListAsync();
+    // }
     public void Dispose()
     {
         //Dispose(true);
