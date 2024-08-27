@@ -4,9 +4,10 @@ namespace VehicleStorage.Domain.Entities;
 
 public class Vehicle : BaseEntity
 {
-    public string? Name { get; set; }
-    public Colour? Color { get; set; }
+    public string Name { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+    public int ColourId { get; set; }
+    public Colour ColourFk { get; set; }
 
 }
 

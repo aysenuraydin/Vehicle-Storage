@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Bogus;
 using VehicleStorage.Domain.Entities;
 using VehicleStorage.Infrastructure.Common;
@@ -14,15 +10,15 @@ namespace VehicleStorage.Infrastructure.Seeders
         {
             if (context.Buses.Any()) return;
 
-            var trSet = new Bogus.DataSets.Company(locale: "tr");
+            var random = new Random();
 
             var faker = new Faker<Bus>()
-                .RuleFor(e => e.Name, c => trSet.CompanyName())
+                .RuleFor(e => e.Name, f => $"Bus Name {f.IndexFaker + 1}")
+                .RuleFor(e => e.ColourId, _ => random.Next(1, 5))
             //... Devamını yaz.
             ;
 
-
-            var list = faker.Generate(20);
+            var list = faker.Generate(10);
 
             await context.Buses.AddRangeAsync(list);
             await context.SaveChangesAsync();

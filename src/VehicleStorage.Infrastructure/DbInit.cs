@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-
 using System.Reflection;
-using VehicleStorage.Domain.Entities;
 using VehicleStorage.Infrastructure.Common;
 using VehicleStorage.Infrastructure.Seeders;
 
@@ -22,11 +20,10 @@ public static class DbInitExtensions
 
         //seederları ekle ... 
 
-        await new VehicleSeeder().Seed(context);
         await new ColourSeeder().Seed(context);
         await new BoatSeeder().Seed(context);
-        await new CarSeeder().Seed(context);
         await new BusSeeder().Seed(context);
+        await new CarSeeder().Seed(context);
 
         // ISeeder arayüzünden türeyen tüm Seeder'ları çalıştırmayı sağlar.
         await ApplyAllSeederFromAssembly(context);

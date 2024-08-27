@@ -1,6 +1,22 @@
-@VehicleStorage.WebApi_HostAddress = http://localhost:5013
+@HostAddress = http://localhost:5013/api
 
-GET {{VehicleStorage.WebApi_HostAddress}}/weatherforecast/
+GET {{HostAddress}}/Car/GetAllCars
+Accept: application/json
+
+###
+GET {{HostAddress}}/Bus/GetAllBuses
+Accept: application/json
+
+###
+GET {{HostAddress}}/Boat/GetAllBoats
+Accept: application/json
+
+###
+GET {{HostAddress}}/Vehicle/GetAllVehicles
+Accept: application/json
+
+###
+GET {{HostAddress}}/Colour/GetAllColours
 Accept: application/json
 
 ###

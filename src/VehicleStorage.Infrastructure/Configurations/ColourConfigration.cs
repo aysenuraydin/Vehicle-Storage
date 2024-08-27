@@ -8,11 +8,9 @@ namespace VehicleStorage.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Colour> builder)
         {
-            builder.ToTable(nameof(Colour), "dbo");
+            builder.ToTable(nameof(Colour));
+            builder.HasKey(c => c.Id);
 
-            builder
-                .Property(b => b.Id)
-                .IsRequired();
             builder
                 .Property(b => b.ColorName)
                 .HasMaxLength(20)

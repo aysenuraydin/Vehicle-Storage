@@ -5,12 +5,14 @@ using VehicleStorage.Services.Interfaces;
 
 namespace VehicleStorage.Services;
 
-public class BusService : BaseService<Bus, int>, IBusService
+public class ColourService : BaseService<Colour, int>, IColourService
 {
-    private readonly IBusRepository _context;
+    private readonly IColourRepository _context;
 
-    public BusService(IBusRepository context) : base(context)
+    public ColourService(IColourRepository context) : base(context)
     {
         _context = context;
     }
+
+    //farları ac kapa
 }

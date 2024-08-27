@@ -1,18 +1,23 @@
 
-
 namespace VehicleStorage.Domain.Common
 {
     public class BaseService<TEntity, TKey> : IService<TEntity, TKey>
     where TEntity : class, IEntity<TKey>
     {
-        public IQueryable<TEntity> GetAll()
+        private readonly IRepository<TEntity, TKey> _repository;
+
+        public BaseService(IRepository<TEntity, TKey> repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
         }
 
-        public Task<TEntity?> GetById(TKey id)
+        public List<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
+        }
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        {
+            return await _repository.GetAllAsync();
         }
     }
 }

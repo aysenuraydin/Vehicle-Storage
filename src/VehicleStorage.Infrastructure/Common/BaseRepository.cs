@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VehicleStorage.Domain.Common;
 
@@ -19,18 +15,13 @@ where TEntity : class, IEntity<TKey>
         _table = _context.Set<TEntity>();
     }
 
-    public IQueryable<TEntity> GetAll()
+    public List<TEntity> GetAll()
     {
-        return default;
+        return _table.ToList();
     }
-    public async Task<TEntity?> GetById(TKey id, bool hasTracking = false)
+    public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
-        return default;
-    }
-
-    public Task<TEntity?> GetById(TKey id)
-    {
-        throw new NotImplementedException();
+        return await _table.ToListAsync();
     }
     public void Dispose()
     {

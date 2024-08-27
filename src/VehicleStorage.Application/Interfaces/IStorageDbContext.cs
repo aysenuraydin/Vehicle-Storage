@@ -1,4 +1,3 @@
-using System.Drawing;
 using Microsoft.EntityFrameworkCore;
 using VehicleStorage.Domain.Entities;
 
@@ -6,11 +5,11 @@ namespace VehicleStorage.Application.Interfaces
 {
     public interface IStorageDbContext
     {
-        DbSet<Colour> Colours { get; }
-        DbSet<Vehicle> Vehicles { get; }
-        DbSet<Car> Cars { get; }
-        DbSet<Bus> Buses { get; }
-        DbSet<Boat> Boats { get; }
+        DbSet<Colour> Colours { get; set; }
+        DbSet<Vehicle> Vehicles { get; set; }
+        DbSet<Car> Cars { get; set; }
+        DbSet<Bus> Buses { get; set; }
+        DbSet<Boat> Boats { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
