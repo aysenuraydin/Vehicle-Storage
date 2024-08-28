@@ -2,9 +2,6 @@
 
 GET {{HostAddress}}/Car/GetAllCars
 Accept: application/json
-###
-GET  {{HostAddress}}/Car/ToggleHeadlight/21
-Accept: application/json
 
 ###
 DELETE {{HostAddress}}/Car/25
@@ -46,4 +43,9 @@ Accept: application/json
 GET {{HostAddress}}/Bus/GetAllBusesByColour/Kırmızı
 Accept: application/json
 ###
+POST {{HostAddress}}/Car/ToggleHeadlight
+Content-Type: application/json
 
+{
+  "id": 24
+}

@@ -7,5 +7,5 @@ namespace VehicleStorage.Services.Interfaces;
 public interface ICarService : IServiceForVehicle<Car, int>
 {
     Task<bool> Delete(int id);
-    Task<bool> ToggleHeadlight(int id);
+    Task<CarDto?> ToggleHeadlight(int id);
 }

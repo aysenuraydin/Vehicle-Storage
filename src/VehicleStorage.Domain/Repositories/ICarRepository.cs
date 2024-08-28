@@ -5,5 +5,5 @@ namespace VehicleStorage.Repository.Domain;
 
 public interface ICarRepository : IRepositoryForVehicle<Car, int>
 {
-    Task<bool> ToggleHeadlight(int id);
+    Task<Car?> ToggleHeadlight(int id);
 }
