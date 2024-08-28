@@ -1,6 +1,4 @@
-using AutoMapper;
 using FluentValidation;
-using VehicleStorage.Domain.Entities;
 
 namespace VehicleStorage.Application.Dtos
 {
