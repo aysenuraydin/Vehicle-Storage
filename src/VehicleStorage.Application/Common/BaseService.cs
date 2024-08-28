@@ -1,7 +1,4 @@
 
-using VehicleStorage.Application.Dtos;
-using VehicleStorage.Domain.Entities;
-
 namespace VehicleStorage.Domain.Common
 {
     public class BaseService<TEntity, TKey> : IService<TEntity, TKey>

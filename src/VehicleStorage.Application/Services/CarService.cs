@@ -1,3 +1,4 @@
+using AutoMapper;
 using VehicleStorage.Application.Dtos;
 using VehicleStorage.Domain.Common;
 using VehicleStorage.Domain.Entities;
@@ -9,10 +10,12 @@ namespace VehicleStorage.Services;
 
 public class CarService : VehicleBaseService<Car, int>, ICarService
 {
+    IMapper _mapper;
     ICarRepository _carRepository;
-    public CarService(IColourRepository colourContext, IRepository<Car, int> repository, IRepositoryForVehicle<Car, int> serviceForVehicleRepository, ICarRepository carRepository) : base(colourContext, repository, serviceForVehicleRepository)
+    public CarService(IColourRepository colourContext, IRepository<Car, int> repository, IRepositoryForVehicle<Car, int> serviceForVehicleRepository, ICarRepository carRepository, IMapper mapper) : base(colourContext, repository, serviceForVehicleRepository, mapper)
     {
         _carRepository = carRepository;
+        _mapper = mapper;
     }
 
     public async Task<bool> Delete(int id)
@@ -28,18 +31,7 @@ public class CarService : VehicleBaseService<Car, int>, ICarService
         Car? car = await _carRepository.ToggleHeadlight(id);
 
         if (car == null) return null;
-        return CarToDTO(car);
-    }
-    private static CarDto CarToDTO(Car c)
-    {
-        return new CarDto
-        {
-            Id = c.Id,
-            Name = c.Name,
-            CreatedDate = c.CreatedDate.ToString("yyyy-MM-dd"),
-            ColourName = c.ColourFk?.ColorName ?? "",
-            HeadlightState = c.Headlights == HeadlightStatus.On
-        };
+        return _mapper.Map<CarDto>(car);
     }
 }
 

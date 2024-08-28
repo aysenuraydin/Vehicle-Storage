@@ -1,7 +1,6 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using VehicleStorage.Domain.Common;
-using VehicleStorage.Domain.Entities;
 
 namespace VehicleStorage.Infrastructure.Common;
 public class BaseRepository<TEntity, TKey> : IRepository<TEntity, TKey>

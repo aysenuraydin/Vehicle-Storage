@@ -1,3 +1,4 @@
+using AutoMapper;
 using VehicleStorage.Application.Dtos;
 using VehicleStorage.Domain.Common;
 using VehicleStorage.Domain.Entities;
@@ -9,26 +10,17 @@ namespace VehicleStorage.Services;
 public class ColourService : BaseService<Colour, int>, IColourService
 {
     private readonly IColourRepository _colourRepository;
+    private readonly IMapper _mapper;
 
-    public ColourService(IColourRepository colourRepository) : base(colourRepository)
+    public ColourService(IColourRepository colourRepository, IMapper mapper) : base(colourRepository)
     {
         _colourRepository = colourRepository;
+        _mapper = mapper;
     }
-    public async Task<IEnumerable<ColoursDto>> GetAllColoursAsync()
+    public async Task<IEnumerable<ColourDto>> GetAllColoursAsync()
     {
-        var liste = await _colourRepository.GetAllAsync();
+        var list = await _colourRepository.GetAllAsync();
 
-        return liste.Select(x => ColorsListToDTO(x)).ToList();
-    }
-
-    private static ColoursDto ColorsListToDTO(Colour p)
-    {
-        ColoursDto entity = new();
-        if (p != null)
-        {
-            entity.Id = p.Id;
-            entity.ColorName = p.ColorName;
-        }
-        return entity;
+        return _mapper.Map<IEnumerable<ColourDto>>(list);
     }
 }

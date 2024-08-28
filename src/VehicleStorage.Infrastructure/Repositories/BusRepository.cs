@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using VehicleStorage.Domain.Entities;
 using VehicleStorage.Infrastructure;
 using VehicleStorage.Infrastructure.Common;

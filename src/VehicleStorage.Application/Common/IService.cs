@@ -1,6 +1,3 @@
-using System.Linq.Expressions;
-using VehicleStorage.Application.Dtos;
-
 namespace VehicleStorage.Domain.Common
 {
     public interface IService<TEntity, TKey>

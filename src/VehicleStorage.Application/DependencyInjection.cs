@@ -1,3 +1,5 @@
+using System.Reflection;
+using FluentValidation;
 using VehicleStorage.Domain.Common;
 using VehicleStorage.Services;
 using VehicleStorage.Services.Interfaces;
@@ -14,6 +16,10 @@ public static class DependencyInjection
         services.AddTransient<IBoatService, BoatService>();
         services.AddTransient<IColourService, ColourService>();
         services.AddTransient<IVehicleService, VehicleService>();
+
+        var assembly = Assembly.GetExecutingAssembly();
+        services.AddAutoMapper(assembly);
+        services.AddValidatorsFromAssembly(assembly);
 
         return services;
     }
