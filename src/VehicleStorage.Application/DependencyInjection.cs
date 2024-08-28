@@ -4,6 +4,7 @@ using VehicleStorage.Domain.Common;
 using VehicleStorage.Services;
 using VehicleStorage.Services.Interfaces;
 namespace Microsoft.Extensions.DependencyInjection;
+
 public static class DependencyInjection
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
