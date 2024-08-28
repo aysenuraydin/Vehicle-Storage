@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using VehicleStorage.Application.Dtos;
 using VehicleStorage.Services.Interfaces;
 
 namespace VehicleStorage.WebApi.Controllers
@@ -30,13 +31,16 @@ namespace VehicleStorage.WebApi.Controllers
 
             return Ok(list);
         }
-        [HttpGet("ToggleHeadlight/{id}")]
-        public async Task<IActionResult> ToggleHeadlight(int id)
-        {
-            var result = await _carService.ToggleHeadlight(id);
 
-            if (!result) return Ok("Headlight of down");
-            return Ok("Headlight is turn on");
+        [HttpPost("ToggleHeadlight")]
+        public async Task<IActionResult> ToggleHeadlight(HeadlightDto car)
+        {
+            CarDto? result = await _carService.ToggleHeadlight(car.Id);
+
+            if (result == null) return NotFound("Car not found");
+
+            if (!result.HeadlightState) return Ok(new { message = "Headlight of down", data = result });
+            return Ok(new { message = "Headlight is turn on", data = result });
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

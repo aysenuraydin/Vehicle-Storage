@@ -1,5 +1,7 @@
+using VehicleStorage.Application.Dtos;
 using VehicleStorage.Domain.Common;
 using VehicleStorage.Domain.Entities;
+using VehicleStorage.Domain.Enums;
 using VehicleStorage.Repository.Domain;
 using VehicleStorage.Services.Interfaces;
 
@@ -20,11 +22,24 @@ public class CarService : VehicleBaseService<Car, int>, ICarService
             return true;
         return false;
     }
-    public async Task<bool> ToggleHeadlight(int id)
-    {
-        bool isSuccess = await _carRepository.ToggleHeadlight(id);
 
-        if (isSuccess) return true;
-        return false;
+    public async Task<CarDto?> ToggleHeadlight(int id)
+    {
+        Car? car = await _carRepository.ToggleHeadlight(id);
+
+        if (car == null) return null;
+        return CarToDTO(car);
+    }
+    private static CarDto CarToDTO(Car c)
+    {
+        return new CarDto
+        {
+            Id = c.Id,
+            Name = c.Name,
+            CreatedDate = c.CreatedDate.ToString("yyyy-MM-dd"),
+            ColourName = c.ColourFk?.ColorName ?? "",
+            HeadlightState = c.Headlights == HeadlightStatus.On
+        };
     }
 }
+

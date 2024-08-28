@@ -32,7 +32,7 @@ public class VehicleBaseRepository<TEntity, TKey> : BaseRepository<TEntity, TKey
         }
         return await db.ToListAsync();
     }
-    public async Task<List<TEntity>> GetIdAllIncludeFilterAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] tables)
+    public async Task<List<TEntity>> GetAllIncludeFilterAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] tables)
     {
         IQueryable<TEntity> db = _table;
         foreach (var table in tables)
@@ -40,5 +40,15 @@ public class VehicleBaseRepository<TEntity, TKey> : BaseRepository<TEntity, TKey
             db = db.Include(table);
         }
         return await db.Where(expression).ToListAsync();
+    }
+    public async Task<TEntity?> GetIncludeFilterAsync(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[] tables)
+    {
+        IQueryable<TEntity> db = _table;
+        foreach (var table in tables)
+        {
+            db = db.Include(table);
+        }
+        var result = await db.Where(expression).FirstOrDefaultAsync();
+        return result;
     }
 }

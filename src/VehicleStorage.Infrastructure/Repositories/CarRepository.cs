@@ -15,18 +15,23 @@ public class CarRepository : VehicleBaseRepository<Car, int>, ICarRepository
         _context = context;
         _table = _context.Set<Car>();
     }
-    public async Task<bool> ToggleHeadlight(int id)
+    public async Task<Car?> ToggleHeadlight(int id)
     {
-        var entity = await FindAsync(id);
+        var entity = await GetIncludeFilterAsync(
+                        x => x.Id == id,
+                        x => x.ColourFk
+                    );
+        //include yapmalısın firstordefault ile
 
-        if (entity == null) return default;
+        if (entity == null) return null;
 
         entity.Headlights = (entity.Headlights == HeadlightStatus.On)
                                 ? HeadlightStatus.Off
                                 : HeadlightStatus.On;
 
+        _table.Update(entity);
         await SaveChangesAsync();
 
-        return entity.Headlights == HeadlightStatus.On; ;
+        return entity;
     }
 }
