@@ -1,5 +1,4 @@
 using System.Linq.Expressions;
-using VehicleStorage.Domain.Entities;
 
 namespace VehicleStorage.Domain.Common;
 public interface IRepository<TEntity, TKey> : IDisposable

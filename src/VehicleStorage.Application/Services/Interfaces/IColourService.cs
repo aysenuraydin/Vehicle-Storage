@@ -5,5 +5,5 @@ using VehicleStorage.Domain.Entities;
 namespace VehicleStorage.Services.Interfaces;
 public interface IColourService : IService<Colour>
 {
-    Task<IEnumerable<ColoursDto>> GetAllColoursAsync();
+    Task<IEnumerable<ColourDto>> GetAllColoursAsync();
 }
