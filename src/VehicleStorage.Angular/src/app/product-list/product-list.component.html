@@ -1,0 +1,15 @@
+<div class="cards">
+  <div class="card" *ngFor="let p of products" [class.bg-secondary]="p.isActive">
+    <div class="card-body">
+      {{ p.id }} - {{ p.name }} - {{ p.price }} - {{ p.isActive }}
+    </div>
+    <div class="card-buttons">
+      <button class="edit" (click)="onSelectProduct(p)">
+        <i class="fa-regular fa-pen-to-square"></i>
+      </button>
+      <button class="delete" (click)="onDeleteProduct(p)">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.sidebar {
+  width: 15.3rem;
+  background-color: #A0C5E8;
+  color: #1b8bf3;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  top: 5.2rem;
+  right: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  color: #1b8bf3;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #c1dbf4;
+}
+
+
+@media screen and (max-width: 970px) {
+  .sidebar {
+     display: none !important;
+}
+}

@@ -1,0 +1,48 @@
+
+.form-group {
+  margin: 15px;
+}
+
+form {
+  padding: 0 !important;
+}
+form input {
+  width: 100%;
+  padding: 8px 0;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 48%;
+}
+
+.reset {
+  background-color: #e69a9a;
+  color: white;
+}
+
+.submit {
+  background-color:#e69a9a ;
+  color: white;
+}
+
+button[disabled]  {
+  background-color:#989696 ;
+  color: white;
+}
+
+@media screen and (max-width: 670px) {
+  .sidebar {
+     display: none !important;
+}
+}

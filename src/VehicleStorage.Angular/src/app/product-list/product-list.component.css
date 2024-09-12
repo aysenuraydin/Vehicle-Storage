@@ -1,0 +1,41 @@
+
+.cards {
+  margin-top: 20px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.card-body {
+  flex-grow: 1;
+}
+
+.card-buttons {
+  display: flex;
+}
+
+.edit,
+.delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.edit ,.delete{
+  color: #e69a9a;
+}
+
+
+@media screen and (max-width: 670px) {
+  .sidebar {
+     display: none !important;
+  }
+}

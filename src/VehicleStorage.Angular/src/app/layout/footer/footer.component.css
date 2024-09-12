@@ -1,0 +1,28 @@
+.footer-bottom {
+  border: 2px solid red;
+  background-color: #B5D7A8;
+  padding: 1.3rem;
+  color: #6ac248;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border: 0.3rem solid #B5D7A8;
+  min-height: 2.8rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 670px) {
+  .sidebar {
+     display: none !important;
+  }
+  .footer-bottom {
+    min-height: 1rem;
+    padding: 1.6rem;
+  }
+}

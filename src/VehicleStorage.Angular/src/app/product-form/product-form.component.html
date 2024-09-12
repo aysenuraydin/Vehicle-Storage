@@ -1,0 +1,58 @@
+<!-- <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input formControlName="name" type="text" id="name" class="form-control" required/>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input formControlName="price" type="text" id="price" class="form-control" required/>
+  </div>
+
+  <div class="form-group">
+    <label for="isActive">
+      <input formControlName="isActive" type="checkbox" id="isActive" required/>
+      Is Active
+    </label>
+  </div>
+
+  <div class="button-group">
+    <button type="button" class="reset" (click)="onReset()">Reset</button>
+    <button type="submit" class="submit">{{ selectedProduct ? 'Update' : 'Add' }} Product</button>
+  </div>
+</form> -->
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input formControlName="name" type="text" id="name" class="form-control" required/>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input formControlName="price" type="text" id="price" class="form-control" required/>
+  </div>
+
+  <div class="form-group">
+    <label for="isActive">
+      <input formControlName="isActive" type="checkbox" id="isActive"/>
+      Is Active
+    </label>
+  </div>
+
+  <!-- <div class="button-group">
+    <button type="button" class="reset" (click)="onReset()">Reset</button>
+    <button type="submit" class="submit">{{ selectedProduct ? 'Update' : 'Add' }} Product</button>
+  </div> -->
+
+  <div class="button-group">
+    <!-- RESET butonu, form boşsa devre dışı -->
+    <button type="button" class="reset" (click)="onReset()" [disabled]="productForm.pristine">
+      Reset
+    </button>
+
+    <!-- SUBMIT butonu, form geçersizse devre dışı -->
+    <button type="submit" class="submit" [disabled]="!productForm.valid">
+      {{ selectedProduct ? 'Update' : 'Add' }} Product
+    </button>
+  </div>
+</form>

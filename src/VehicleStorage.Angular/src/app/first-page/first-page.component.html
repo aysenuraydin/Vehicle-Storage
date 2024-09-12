@@ -1,0 +1,30 @@
+<second-layout>
+  <div class="content-body">
+    <div class="container">
+      <div class="sidebar">
+        <ul>
+          <li><i class="fa-solid fa-droplet"></i> Menu Item</li>
+          <li><i class="fa-solid fa-droplet"></i> Menu Item</li>
+          <li><i class="fa-solid fa-droplet"></i> Menu Item</li>
+          <li><i class="fa-solid fa-droplet"></i> Menu Item</li>
+          <li><i class="fa-solid fa-droplet"></i> Menu Item</li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="header">
+          <h2>{{title}}</h2>
+        </div>
+        <app-product-form
+          [selectedProduct]="selectedProduct"
+          (formSubmit)="handleFormSubmit($event)"
+          (formReset)="handleFormReset()">
+        </app-product-form>
+        <app-product-list
+          [products]="products"
+          (selectProduct)="handleSelectProduct($event)"
+          (deleteProduct)="handleDeleteProduct($event)">
+        </app-product-list>
+      </div>
+    </div>
+  </div>
+</second-layout>
