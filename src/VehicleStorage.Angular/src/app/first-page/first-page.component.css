@@ -9,7 +9,9 @@
 body {
   font-family: Arial, sans-serif;
 }
-
+.sidebar ul li a.selected {
+  color:#e69a9a;
+}
 .container {
   width: 100%;
   padding: 20px;

@@ -1,32 +1,31 @@
-
-        <second-layout>
-          <div class="content-body">
-            <div class="container">
-              <div class="sidebar">
-                <ul>
-                  <li *ngFor="let color of colors">
-                    <a (click)="changeColor(color)"
-                       [class.selected]="currentColor === color">
-                       <i class="fa-solid fa-droplet" [style.color]="color"></i>
-                       {{ color }} Item</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="content">
-                <div class="header" [style.backgroundColor]="currentColor">
-                  <h2>{{ title }}</h2>
-                </div>
-                <app-product-form
-                  [selectedProduct]="selectedProduct"
-                  (formSubmit)="handleFormSubmit($event)"
-                  (formReset)="handleFormReset()">
-                </app-product-form>
-                <app-product-list
-                  [products]="products"
-                  (selectProduct)="handleSelectProduct($event)"
-                  (deleteProduct)="handleDeleteProduct($event)">
-                </app-product-list>
-              </div>
-            </div>
-          </div>
-        </second-layout>
+<second-layout>
+  <div class="content-body">
+    <div class="container">
+      <div class="sidebar">
+        <ul>
+          <li *ngFor="let color of colors">
+            <a (click)="changeColor(color)"
+              [class.selected]="currentColor === color">
+              <i class="fa-solid fa-droplet" [style.color]="color"></i>
+              Color Item</a>
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="header" [style.backgroundColor]="currentColor">
+          <h2>{{ title }}</h2>
+        </div>
+        <product-form
+          [selectedProduct]="selectedProduct"
+          (formSubmit)="handleFormSubmit($event)"
+          (formReset)="handleFormReset()">
+        </product-form>
+        <product-list
+          [products]="products"
+          (selectProduct)="handleSelectProduct($event)"
+          (deleteProduct)="handleDeleteProduct($event)">
+        </product-list>
+      </div>
+    </div>
+  </div>
+</second-layout>

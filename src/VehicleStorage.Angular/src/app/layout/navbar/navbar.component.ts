@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ColorService } from '../../color.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  bgColor: string = '';
 
+  constructor(private colorService: ColorService) {}
+
+  ngOnInit(): void {
+    this.colorService.currentColor.subscribe(color => this.bgColor = color);
+  }
 }

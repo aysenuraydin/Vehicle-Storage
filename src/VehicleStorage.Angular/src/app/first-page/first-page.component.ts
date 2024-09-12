@@ -2,23 +2,36 @@
 import { Component, OnInit } from '@angular/core';
 import { Products } from '../models/product';
 import { ProductService } from '../product.service';
+import { ColorService } from '../color.service';
 
 @Component({
-  selector: 'app-second-page',
+  selector: 'app-first-page',
   templateUrl: './first-page.component.html',
   styleUrls: ['./first-page.component.css']
 })
 export class FirstPageComponent implements OnInit {
   products: Products[] = [];
   selectedProduct: Products | null = null;
-  title :string = "Flex";
+  title :string = "Grid";
+  colors: string[] = ['#99B6B7', '#E9A290', '#B46A6B', '#556C56', '#BEBEBE', '#CDE5EC', '#E9E788', '#C6B9D1', '#E2AEB3'];
+  currentColor: string = '';
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private colorService: ColorService) {}
 
   ngOnInit(): void {
     this.products = this.productService.getProducts();
+    const savedColor = localStorage.getItem('backgroundColor');
+    if (savedColor) {
+      this.currentColor = savedColor;
+      this.colorService.changeColor(savedColor);
+    }
   }
 
+  changeColor(color: string): void {
+    this.currentColor = color;
+    this.colorService.changeColor(color);
+    localStorage.setItem('backgroundColor', color);
+  }
   handleFormSubmit(product: Products): void {
     if (this.selectedProduct) {
       this.productService.updateProduct(product);
@@ -27,7 +40,7 @@ export class FirstPageComponent implements OnInit {
       product.id = this.products.length + 1;
       this.productService.saveProduct(product);
     }
-    this.products = this.productService.getProducts(); // Refresh the list
+    this.products = this.productService.getProducts();
   }
 
   handleFormReset(): void {
@@ -44,5 +57,3 @@ export class FirstPageComponent implements OnInit {
     this.products = this.products.filter(p => p.id !== product.id);
   }
 }
-
-

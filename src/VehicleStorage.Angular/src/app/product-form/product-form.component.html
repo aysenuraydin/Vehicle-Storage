@@ -39,18 +39,11 @@
     </label>
   </div>
 
-  <!-- <div class="button-group">
-    <button type="button" class="reset" (click)="onReset()">Reset</button>
-    <button type="submit" class="submit">{{ selectedProduct ? 'Update' : 'Add' }} Product</button>
-  </div> -->
-
-  <div class="button-group">
-    <!-- RESET butonu, form boşsa devre dışı -->
+<div class="button-group">
     <button type="button" class="reset" (click)="onReset()" [disabled]="productForm.pristine">
       Reset
     </button>
 
-    <!-- SUBMIT butonu, form geçersizse devre dışı -->
     <button type="submit" class="submit" [disabled]="!productForm.valid">
       {{ selectedProduct ? 'Update' : 'Add' }} Product
     </button>
